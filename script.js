@@ -9,6 +9,10 @@ const TODOS_STORAGE_KEY = `${LOCAL_STORAGE_PREFIX}todos`
 let todos = loadTodos()
 todos.forEach(renderTodo)
 
+function saveTodos(){
+  localStorage.setItem(TODOS_STORAGE_KEY, JSON.stringify(todos))
+}
+
 function loadTodos(){
   const todosString = localStorage.getItem(TODOS_STORAGE_KEY)
   return JSON.parse(todosString) || []
